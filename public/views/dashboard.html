@@ -7,7 +7,7 @@
 			<div class="row">
 				<div class="col col-md-6 col-lg-6 col-sm-6 border-right">
 					<center>
-						Percentage of sick leaves used
+						Percentage of leaves left
 						<div id="donut"></div>
 					</center>
 				</div>
@@ -37,7 +37,8 @@
 		<div class="card col col-md-4 col-lg-4 col-sm-6" style="height:450px">
 			<h4><strong>Anouncements</strong></h4>
 			<div ng-repeat="announcement in announcements" class="border-bottom">
-				<h5><strong>{{announcement.aHeading}}</strong></h5>
+				<h5><img src="{{announcement.imgUrl}}" style="width:20px; height:20px">
+					<strong>{{announcement.aHeading}}</strong></h5>
 				<h6>{{announcement.aDate}}</h6>
 				<h6>{{announcement.aText}}</h6>
 			</div>
