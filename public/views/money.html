@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col col-md-6 col-lg-6 col-sm-6 col-xs-6 border-right">
                     <center>
-                        ** Donut chart comes here
+                       <div class="morris-graph col-sm-3 " id="paycheck"></div>
                     </center>
                 </div>
                 <div class="col col-md-4 col-lg-4 col-sm-4 col-xs-4">
@@ -45,7 +45,7 @@
             <div class="row">
                 <div class="col col-md-6 col-lg-6 col-sm-6 col-xs-6 border-right">
                     <center>
-                        ** Bar chart with last 6 paychecks comes here
+                       <div id="calories"></div>
                     </center>
                 </div>
                 <div class="col col-md-4 col-lg-4 col-sm-4 col-xs-4">
@@ -53,10 +53,12 @@
                         <table class="tableCustom" ng-if="projects != '' ">
                             <tr>
                                 <th>Date</th>
+                                <th></th>
                                 <th>Amount</th>
                             </tr>
                             <tr ng-repeat="paycheck in paychecks">
                                 <td>{{paycheck.date}}</td>
+                                <td></td>
                                 <td>{{paycheck.amount}}</td>
                             </tr>
                         </table>

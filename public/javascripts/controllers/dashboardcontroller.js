@@ -79,17 +79,33 @@ payrollApp.controller('dashboardController', function ($http, $window, $location
 	];
 	$scope.announcements = [
 		{
-			aHeading: "Celebration of Sanketh's Birthday",
-			aDate: "2017-08-31",
-			aText: "We hope a Great Party"
+			aHeading: "Server Maintanance",
+			aDate: "2017-05-19",
+			aText: "Our system will not be accessible because they'll be in maintanance on May 19th",
+			imgUrl: '../../images/icons/maintainance.png'
+		},
+		{
+			aHeading: "Celebration of Varun's Birthday",
+			aDate: "2017-03-18",
+			aText: "Let's make it count",
+			imgUrl: '../../images/icons/birthday.png'
 
 		},
 		{
-			aHeading: "Server Maintanance",
-			aDate: "2017-05-19",
-			aText: "Our system will not be accessible because they'll be in maintanance on May 19th"
+			aHeading: "Celebration of Sanketh's Birthday",
+			aDate: "2017-08-31",
+			aText: "We hope a Great Party",
+			imgUrl: '../../images/icons/birthday.png'
+
+		},
+		{
+			aHeading: "WebApp Release",
+			aDate: "2017-09-19",
+			aText: "Deadline for WebApp release",
+			imgUrl: '../../images/icons/release.png'
 
 		}
+		
 
 	];
 
