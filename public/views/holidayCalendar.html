@@ -1,0 +1,21 @@
+<h3>Holiday Calendar</h3>
+<div class="container">
+    <div class="row">
+        <div class="card col col-md-7 col-lg-7 col-sm-11">
+        <h4><strong>Holidays</strong></h4>
+           <center>
+				<table class="tableCustom" ng-if="holidays != '' ">
+					<tr>
+						<th>Date</th>
+						<th>Name</th>
+					</tr>
+					<tr ng-repeat="holiday in holidays">
+						<td>{{holiday.date}}</td>
+						<td>{{holiday.name}}</td>
+					</tr>
+				</table>
+				<p ng-if="holidays == '' " class="pdng-top"><strong>No Holidays for your company</strong></p>
+			</center>
+        </div>
+    </div>
+</div>

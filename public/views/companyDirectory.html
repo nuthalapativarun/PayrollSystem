@@ -1,0 +1,27 @@
+<h3>Company Directory</h3>
+<div class="container">
+    <div class="row">
+        <div class="card col col-md-9 col-lg-9 col-sm-11">
+        <h4><strong>Employees</strong></h4>
+           <center>
+				<table class="tableCustom" ng-if="holidays != '' ">
+					<tr>
+						<th>Name</th>
+						<th>Position</th>
+                        <th>Department</th>
+                        <th>Start Date</th>
+                        <th>Reports To</th>
+					</tr>
+					<tr ng-repeat="employee in employees">
+						<td>{{employee.fullname}}</td>
+                        <td>{{employee.position}}</td>
+                        <td>{{employee.department}}</td>
+                        <td>{{employee.serviceDate}}</td>
+                        <td>{{employee.reportsTo}}</td>
+					</tr>
+				</table>
+				<p ng-if="holidays == '' " class="pdng-top"><strong>No Holidays for your company</strong></p>
+			</center>
+        </div>
+    </div>
+</div>

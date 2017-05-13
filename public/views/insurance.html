@@ -1,0 +1,42 @@
+<h3>Insurance</h3>
+<div class="container">
+    <div class="row">
+        <div class="card col col-md-7 col-lg-7 col-sm-11">
+            <h4><strong>Medical</strong></h4>
+            <h4 class="right"><strong>{{insurance.insCompanyName}}</strong></h4>
+            <br><br>
+            <center>
+                <strong>Covered</strong>
+                <hr> {{empName}}
+            </center>
+        </div>
+
+        <div class="card col col-md-3 col-lg-3 col-sm-6">
+            <h4><strong>Monthly Payment</strong></h4>
+            <center>
+                <p style="font-size:45px;">$ {{insurance.monthlyPayment}}</p>
+                <h5>at the end of the month</h5>
+            </center>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card col col-md-7 col-lg-7 col-sm-11">
+            <h4><strong>Dependents</strong></h4>
+            <center>
+                <table class="tableCustom" ng-if="dependents != '' ">
+                    <tr>
+                        <th>Name</th>
+                        <th>Relation</th>
+                        
+                    </tr>
+                    <tr ng-repeat="dependent in dependents">
+                        <td>{{dependent.name}}</td>
+                        <td>{{dependent.relation}}</td>
+                    </tr>
+                </table>
+                <p ng-if="dependents == '' " class="pdng-top"><strong>No Dependents</strong></p>
+            </center>
+        </div>
+    </div>
+
+</div>

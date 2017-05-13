@@ -1,0 +1,73 @@
+<h3>Money</h3>
+<div class="container">
+    <div class="row">
+        <div class="card col col-md-8 col-lg-8 col-sm-11">
+            <h4><strong>Time Off</strong></h4>
+            <br><br>
+            <div class="row">
+                <div class="col col-md-6 col-lg-6 col-sm-6 col-xs-6 border-right">
+                    <center>
+                        ** Donut chart comes here
+                    </center>
+                </div>
+                <div class="col col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                    <center> <strong>Paycheck Details</strong>
+                        <ul ng-if="lastPaycheck != '' ">
+                            <li class="pdng-top">Pre Tax: $ {{lastPaycheck.preTax}}</li>
+                            <li class="pdng-top">Post Tax: $ {{lastPaycheck.postTax}}</li>
+                            <li class="pdng-top">Tax Deducted: $ {{lastPaycheck.taxDeducted}}</li>
+                        </ul>
+                        <p ng-if="lastPaycheck == '' " class="pdng-top"><strong>No Previous Paycheck details</strong></p>
+                    </center>
+                </div>
+
+            </div>
+            <br><br>
+            <center><a href="/viewTimeOff"><button class="btn btn-primary">View Details</button></a>
+
+        </div>
+        <div class="card col col-md-3 col-lg-3 col-sm-6">
+            <h4><strong>Next Paycheck</strong></h4>
+            <center>
+                <p>On</p>
+                <p>May</p>
+                <p style="font-size:45px;">29</p>
+                <p>Monday</p>
+                <h6>In {{daysLeft}} days</h6>
+
+            </center>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card col col-md-8 col-lg-8 col-sm-11 col-xs-12">
+            <h4><strong>Time Off</strong></h4>
+            <br><br>
+            <div class="row">
+                <div class="col col-md-6 col-lg-6 col-sm-6 col-xs-6 border-right">
+                    <center>
+                        ** Bar chart with last 6 paychecks comes here
+                    </center>
+                </div>
+                <div class="col col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                    <center>
+                        <table class="tableCustom" ng-if="projects != '' ">
+                            <tr>
+                                <th>Date</th>
+                                <th>Amount</th>
+                            </tr>
+                            <tr ng-repeat="paycheck in paychecks">
+                                <td>{{paycheck.date}}</td>
+                                <td>{{paycheck.amount}}</td>
+                            </tr>
+                        </table>
+                    </center>
+                </div>
+
+            </div>
+            <br><br>
+            <center><a href="/viewAllPaychecks"><button class="btn btn-primary">View All Paychecks</button></a>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<h3>Contact Us</h3>
+<div class="container">
+    <div class="row">
+        <div class="card col col-md-7 col-lg-7 col-sm-11">
+            <h4><strong>Want Help??</strong></h4>
+            <div ng-repeat="contact in contacts" class="pdng-top">
+                <br>
+                 <center>
+                <h4><strong>{{contact.cDeptName}}</strong></h4>
+                <br>
+                <h5><strong>{{contact.cName}}</strong></h5>
+                <h5>{{contact.cTitle}}</h5>
+                    <div class="profile-seperator">
+                        <h5>{{contact.cEmail}}</h5>
+                        <h5>{{contact.cPhone}}</h5>
+                    </div>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>

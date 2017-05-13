@@ -1,0 +1,79 @@
+<h3>Dashboard</h3>
+<div class="container">
+	<div class="row">
+		<div class="card col col-md-7 col-lg-7 col-sm-11">
+			<h4><strong>Time Off</strong></h4>
+			<br><br>
+			<div class="row">
+				<div class="col col-md-6 col-lg-6 col-sm-6 border-right">
+					<center>
+						** Donut chart comes here
+					</center>
+				</div>
+				<div class="col col-md-6 col-lg-6 col-sm-6">
+					<center> Previous TimeOff
+						<table class="tableCustom" ng-if="timeOffDetails != '' ">
+							<tr>
+								<th>Date</th>
+								<th>Reason</th>
+								<th>Hours</th>
+							</tr>
+							<tr ng-repeat="timeOff in timeOffDetails">
+								<td>{{timeOff.date}}</td>
+								<td>{{timeOff.reason}}</td>
+								<td>{{timeOff.hours}}</td>
+							</tr>
+						</table>
+						<p ng-if="timeOffDetails == '' " class="pdng-top"><strong>No Previous Leaves</strong></p>
+					</center>
+				</div>
+
+			</div>
+			<br><br>
+			<center><a href="/viewTimeOff"><button class="btn btn-primary">View All TimeOff Requests</button></a>
+
+		</div>
+		<div class="card col col-md-4 col-lg-4 col-sm-6">
+			<h4><strong>Anouncements</strong></h4>
+			<div ng-repeat="announcement in announcements" class="border-bottom">
+				<h5><strong>{{announcement.aHeading}}</strong></h5>
+				<h6>{{announcement.aDate}}</h6>
+				<h6>{{announcement.aText}}</h6>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="card col col-md-7 col-lg-7 col-sm-11">
+			<h4><strong>Projects</strong></h4>
+			<center>
+				<table class="tableCustom" ng-if="projects != '' ">
+					<tr>
+						<th>Project Name</th>
+						<th>Lead</th>
+						<th>Client</th>
+					</tr>
+					<tr ng-repeat="project in projects">
+						<td>{{project.projName}}</td>
+						<td>{{project.teamLead}}</td>
+						<td>{{project.client}}</td>
+					</tr>
+				</table>
+				<p ng-if="projects == '' " class="pdng-top"><strong>Not working on any Projects</strong></p>
+			</center>
+		</div>
+		<div class="card col col-md-4 col-lg-4 col-sm-6">
+			<h4><strong>Next Holiday</strong></h4>
+			<center>
+				<h5><strong>Memorial Day</strong></h5>
+				<p>May</p>
+				<p style="font-size:45px;">29</p>
+				<p>Monday</p>
+				<h6>In {{daysLeft}} days</h6>
+
+			</center>
+		</div>
+
+	</div>
+
+
+</div>
