@@ -29,15 +29,47 @@ payrollApp.controller('dashboardController', function ($http, $window, $location
 
 	var dayFormat = formatDay(todayDate);
 
-	 	function dayName(dStr) {
+	function dayName(dStr) {
 		var d = new Date(dStr);
 		var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 		return days[d.getDay()];
 	}
 
+	var bar = new ProgressBar.Circle(donut, {
+		color: '#00FF7F',
+		// This has to be the same size as the maximum width to
+		// prevent clipping
+		strokeWidth: 4,
+		trailWidth: 1,
+		easing: 'easeInOut',
+		duration: 1400,
+		text: {
+			autoStyleContainer: false
+		},
+		from: { color: '#00FF7F', width: 4 },
+		to: { color: '#00FF7F', width: 4 },
+		// Set default step function for all animate calls
+		step: function (state, circle) {
+			circle.path.setAttribute('stroke', state.color);
+			circle.path.setAttribute('stroke-width', state.width);
+
+			var value = Math.round(circle.value() * 100);
+			if (value === 0) {
+				circle.setText('');
+			} else {
+				circle.setText(value + "%");
+			}
+
+		}
+	});
+	bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+	bar.text.style.fontSize = '2rem';
+
+	bar.animate(0.3);
+
 	$scope.nextHoliday = "2017-05-29";
-	$scope.timeOffDetails=[
+	$scope.timeOffDetails = [
 		{
 			date: "2017-04-28",
 			reason: "Sick",
@@ -61,7 +93,7 @@ payrollApp.controller('dashboardController', function ($http, $window, $location
 
 	];
 
-	$scope.projects=[
+	$scope.projects = [
 		{
 			projName: "Android App",
 			teamLead: "Sanketh Doddapaneni",
@@ -76,5 +108,5 @@ payrollApp.controller('dashboardController', function ($http, $window, $location
 		}
 
 	];
-	
+
 });//end of dashboardController

@@ -7,10 +7,11 @@
 			<div class="row">
 				<div class="col col-md-6 col-lg-6 col-sm-6 border-right">
 					<center>
-						** Donut chart comes here
+						Percentage of sick leaves used
+						<div id="donut"></div>
 					</center>
 				</div>
-				<div class="col col-md-6 col-lg-6 col-sm-6">
+				<div class="col col-md-6 col-lg-6 col-sm-6" >
 					<center> Previous TimeOff
 						<table class="tableCustom" ng-if="timeOffDetails != '' ">
 							<tr>
@@ -33,7 +34,7 @@
 			<center><a href="/viewTimeOff"><button class="btn btn-primary">View All TimeOff Requests</button></a>
 
 		</div>
-		<div class="card col col-md-4 col-lg-4 col-sm-6">
+		<div class="card col col-md-4 col-lg-4 col-sm-6" style="height:450px">
 			<h4><strong>Anouncements</strong></h4>
 			<div ng-repeat="announcement in announcements" class="border-bottom">
 				<h5><strong>{{announcement.aHeading}}</strong></h5>
