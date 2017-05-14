@@ -142,15 +142,16 @@
     <script src="javascripts/controllers/companydirectorycontroller.js"></script>
     <script src="javascripts/controllers/contactuscontroller.js"></script>
     <script src="javascripts/controllers/allannouncementscontroller.js"></script>
+    <script src="javascripts/controllers/requestleavecontroller.js"></script>
 
 
 
 
 </head>
 
-<body ng-app="payrollApp" ng-controller="getfitController" ng-cloak>
+<body ng-app="payrollApp" ng-controller="payrollController" ng-cloak>
     <section id="container">
-        <header class="header dark-bg">
+        <header class="header dark-bg" ng-if="isLoggedIn">
             <div class="toggle-nav">
                 <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
             </div>
@@ -165,16 +166,13 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="fa fa-user" aria-hidden="true"></i>
-                            <span class="username">{{fullname || uppercase}}</span>
+                            <span class="username">{{fullname}}</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
                             <li class="eborder-top" ng-hide="isDoctorLoggedIn">
                                 <a href="/profile"><i class="icon_profile"></i> My Profile</a>
-                            </li>
-                            <li class="eborder-top" ng-hide="isDoctorLoggedIn">
-                                <a href="/viewUserData"><i class="icon_profile"></i> User Data</a>
                             </li>
                             <li>
                                 <a ng-click="signout()"><i class="icon_key_alt"></i> Log Out</a>
@@ -189,7 +187,7 @@
         <!--header end-->
 
         <!--sidebar start-->
-        <aside>
+        <aside ng-if="isLoggedIn">
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu">
@@ -233,6 +231,12 @@
                         <a href="/allAnnouncements" class="">
                             <img src="./images/icons/prediction.png" height="30" width="30">
                             <span>All Announcements</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/requestLeave" class="">
+                            <img src="./images/icons/prediction.png" height="30" width="30">
+                            <span>Request Leave</span>
                         </a>
                     </li>
                 </ul>

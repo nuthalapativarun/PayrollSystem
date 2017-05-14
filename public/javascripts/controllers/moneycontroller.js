@@ -49,7 +49,7 @@ payrollApp.controller('moneyController', function ($http, $window, $location, $s
             { label: "Tax amount", value: $scope.taxDeducted },
             { label: "Paycheck amount", value: $scope.postTax }
         ],
-        colors: ['#FF3232', '#76C2AF'],
+        colors: ['#FF3232', '#33FF77'],
         resize: true
     });
      });
