@@ -312,3 +312,27 @@ module.exports.dependentDetails = function (req, res) {
     }, query);
 
 };
+
+module.exports.nextPay = function (req, res) {
+    console.log('Next Pay Details');
+
+    var empID = req.params.empID;
+
+    query = "SELECT * FROM paycheck where empID = '" + empID + "' and date > curdate() order by date asc limit 1";
+
+    mysql.fetchData(function (err, results) {
+        if (err) {
+            res.status(500)
+                .json(err);
+        }
+        else if (results.length > 0) {
+            res.status(200)
+                .json(results);
+        }
+        else {
+            res.status(204)
+                .json(results);
+        }
+    }, query);
+
+};
