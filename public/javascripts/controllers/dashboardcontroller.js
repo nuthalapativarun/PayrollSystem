@@ -77,16 +77,6 @@ payrollApp.controller('dashboardController', function ($http, $window, $location
 	bar.animate(0.3);
 
 
-
-	// var oneDay = 24 * 60 * 60 * 1000;
-	// var firstDate = new Date();
-	// var secondDate = new Date(2017, 05, 15);
-
-	// var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / (oneDay)));
-	// console.log("Diff", diffDays);
-
-
-
 	$http.get('/api/user/announcement').then(function (response) {
 		$scope.announcements = response.data;
 		console.log("201 Announcements Response", $scope.announcements);

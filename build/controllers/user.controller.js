@@ -1,5 +1,6 @@
 var mysql = require('../database/db');
 var https = require('https');
+var dateTime = require('node-datetime');
 
 module.exports.login = function (req, res) {
     console.log('User Login');
@@ -87,8 +88,10 @@ module.exports.updateFitbit = function (req, res) {                 //Updating A
 
 module.exports.announcement = function (req, res) {
     console.log('Announcements');
+    var dt = dateTime.create();
+    var date = dt.format('Y-m-d');
 
-    query = "SELECT * FROM announcement order by aDate desc limit 3";
+    query = "SELECT * FROM announcement where aDate>= '" + date + "' order by aDate asc limit 3";
 
     mysql.fetchData(function (err, results) {
         if (err) {
@@ -110,7 +113,7 @@ module.exports.announcement = function (req, res) {
 module.exports.viewAnnouncements = function (req, res) {
     console.log('Announcements');
 
-    query = "SELECT * FROM announcement order by aDate desc";
+    query = "SELECT * FROM announcement order by aDate asc";
 
     mysql.fetchData(function (err, results) {
         if (err) {
@@ -132,7 +135,7 @@ module.exports.viewAnnouncements = function (req, res) {
 module.exports.viewProjects = function (req, res) {
     console.log('Projects');
 
-     var empID = req.params.empID;
+    var empID = req.params.empID;
 
     query = "select * from project where projID = any (select projID from proj_emp where empID = '" + empID + "')";
 
