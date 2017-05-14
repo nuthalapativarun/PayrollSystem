@@ -30,6 +30,11 @@ angular.module('angularRoutes', ['ngRoute']).config(['$routeProvider', '$locatio
             templateUrl: '../views/contactus.html',
             controller: 'contactusController'
         })
+        .when('/allAnnouncements', {
+            templateUrl: '../views/allAnnouncements.html',
+            controller: 'allAnnouncementsController'
+        })
+        
         .otherwise({
             redirectTo: '/dashboard'
         });

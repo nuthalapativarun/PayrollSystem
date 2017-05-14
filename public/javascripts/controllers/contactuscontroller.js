@@ -13,4 +13,9 @@ payrollApp.controller('contactusController', function ($http, $window, $location
         cPhone: "3106797998"
     }
     ];
+
+    $http.get('/api/user/contactus').then(function (response) {
+		$scope.contacts = response.data;
+		console.log("201 Holidays Response", $scope.contacts);
+	});
 });
