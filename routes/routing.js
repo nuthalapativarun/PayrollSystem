@@ -25,4 +25,10 @@ module.exports = function (app) {
     app.get('/api/user/dependent/:empID', userCtrl.dependentDetails);
 
     app.get('/api/user/nextPay/:empID', userCtrl.nextPay);
+
+    app.get('/api/user/all/previousPay/:empID', userCtrl.previousAllPay);
+
+    app.get('/api/user/lastPay/:empID', userCtrl.lastPay);
+
+    app.get('/api/user/profile/:empID', userCtrl.profile);
 };

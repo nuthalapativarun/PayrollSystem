@@ -4,6 +4,7 @@
         <div class="card col col-md-8 col-lg-8 col-sm-11">
             <h4><img src="../images/icons/paycheckdetails.png" style="width:50px; height:50px">
                 <strong>Last Paycheck</strong></h4>
+                <h5 class="right"><strong>{{lastPaycheck.date}}</strong></h5>
             <br><br>
             <div class="row">
                 <div class="col col-md-6 col-lg-6 col-sm-6 col-xs-6 border-right">
@@ -13,10 +14,15 @@
                 </div>
                 <div class="col col-md-4 col-lg-4 col-sm-4 col-xs-4">
                     <center> <strong>Paycheck Details</strong>
+                    
                         <ul ng-if="lastPaycheck != '' ">
-                            <li class="pdng-top">Pre Tax: $ {{lastPaycheck.preTax}}</li>
-                            <li class="pdng-top">Post Tax: $ {{lastPaycheck.postTax}}</li>
-                            <li class="pdng-top">Tax Deducted: $ {{lastPaycheck.taxDeducted}}</li>
+                            <li class="pdng-top">Pre Tax: $ {{lastPaycheck.amountPaid}}</li>
+                            <li class="pdng-top">Post Tax: $ {{postTax}}</li>
+                            <li class="pdng-top">Tax Deducted: $ {{taxDeducted}}</li>
+                            <hr>
+                            <li class="pdng-top">Federal Tax:  {{lastPaycheck.federalTax}} %</li>
+                            <li class="pdng-top">State Tax:  {{lastPaycheck.stateTax}} %</li>
+                            <li class="pdng-top">Local Tax:  {{lastPaycheck.localTax}} %</li>
                         </ul>
                         <p ng-if="lastPaycheck == '' " class="pdng-top"><strong>No Previous Paycheck details</strong></p>
                     </center>
@@ -24,7 +30,6 @@
 
             </div>
             <br><br>
-            <center><a href="/viewTimeOff"><button class="btn btn-primary">View Details</button></a>
 
         </div>
         <div class="card col col-md-3 col-lg-3 col-sm-6">
@@ -61,7 +66,7 @@
                             <tr ng-repeat="paycheck in paychecks">
                                 <td>{{paycheck.date}}</td>
                                 <td></td>
-                                <td>{{paycheck.amount}}</td>
+                                <td>{{paycheck.amountPaid}}</td>
                             </tr>
                         </table>
                     </center>
@@ -69,7 +74,6 @@
 
             </div>
             <br><br>
-            <center><a href="/viewAllPaychecks"><button class="btn btn-primary">View All Paychecks</button></a>
 
         </div>
 

@@ -1,81 +1,221 @@
 <h3>Profile</h3>
 <div class="row top-space">
-<div class="card card-margin col-sm-offset-2 col-sm-8 col-sm-offset-2">
-    <div class="container">
-        <div class="row">
-            <div class="col right">
-                <br>
-            </div>
-            <div class="col center">
-                <h3><b>{{profile.fname}} {{profile.lname}}</b></h3>
-            </div>
-            <div class="col">
-                <h3 class="col-sm-6 right border-right">{{profile.gender}}</h3>
-                <h3 class="col-sm-6 left">{{profile.age}}</h3>
-            </div>
-            <div class="col-sm-offset-1 col-sm-10">
-                <div class="row profile-seperator">
-                    <div class="col-sm-1">
-                        <h4><img src="../images/icons/email.png" height="30" width="30"></h4>
-                    </div>
-                    <div class="col-sm-offset-1 col-sm-3">
-                        <h4>Email</h4>
-                    </div>
-                    <div class="col-sm-offset-3 col-sm-4">
-                        <h4>{{profile.email}}</h4>
-                    </div>
+    <div class="card card-margin col-lg-8 col-md-8 col-sm-10 col-xs-12">
+        <div class="container">
+            <div class="row">
+                Personal Profile
+                <div class="col center">
+                    <h3><b>{{profile.fullname}}</b></h3>
                 </div>
-
-
-                <div class="row profile-seperator">
-                    <div class="col-sm-1">
-                       <h4><img src="../images/icons/phone.png" height="30" width="30"><h4>
-                    </div>
-                    <div class="col-sm-offset-1 col-sm-3">
-                        <h4>Phone</h4>
-                    </div>
-                    <div class="col-sm-offset-3 col-sm-4">
-                        <h4>{{profile.phone}}</h4>
-                    </div>
+                <div class="col">
+                    <h3 class="col-sm-6 right border-right">{{profile.gender}}</h3>
+                    <h3 class="col-sm-6 left">{{profile.companyName}}</h3>
                 </div>
+                <div class="col-sm-offset-1 col-sm-10">
+                    <div class="row profile-seperator">
+                        <div class="col-sm-1">
+                            <h4><img src="../images/icons/email.png" height="30" width="30"></h4>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-3">
+                            <h4>Email</h4>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-4">
+                            <h4>{{profile.email}}</h4>
+                        </div>
+                    </div>
 
-                <div class="row profile-seperator">
-                    <div class="col-sm-1">
-                       <h4><img src="../images/icons/fitbitdevice.png" height="30" width="30"><h4>
+                    <div class="row profile-seperator">
+                        <div class="col-sm-1">
+                            <h4><img src="../images/icons/phone.png" height="30" width="30">
+                                <h4>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-3">
+                            <h4>Phone</h4>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-4">
+                            <h4>{{profile.phone}}</h4>
+                        </div>
                     </div>
-                    <div class="col-sm-offset-1 col-sm-3">
-                        <h4>Fitbit User Id</h4>
+
+                    <div class="row profile-seperator">
+                        <div class="col-sm-1">
+                            <h4><img src="../images/icons/fitbitdevice.png" height="30" width="30">
+                                <h4>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-3">
+                            <h4>Employee Id</h4>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-4">
+                            <h4>{{profile.empID}}</h4>
+                        </div>
                     </div>
-                    <div class="col-sm-offset-3 col-sm-4">
-                        <h4>{{profile.userId}}</h4>
+
+                    <div class="row profile-seperator">
+                        <div class="col-sm-1">
+                            <h4><img src="../images/icons/weight.png" height="30" width="30">
+                                <h4>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-3">
+                            <h4>Service Date</h4>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-4">
+                            <h4>{{profile.serviceDate}}</h4>
+                        </div>
                     </div>
+
+                    <div class="row profile-seperator">
+                        <div class="col-sm-1">
+                            <h4><img src="../images/icons/height.png" height="30" width="30">
+                                <h4>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-3">
+                            <h4>Reprots To</h4>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-4">
+                            <h4>{{profile.reportsTo}}</h4>
+                        </div>
+                    </div>
+
                 </div>
-
-                <div class="row profile-seperator">
-                    <div class="col-sm-1">
-                       <h4><img src="../images/icons/weight.png" height="30" width="30"><h4>
-                    </div>
-                    <div class="col-sm-offset-1 col-sm-3">
-                        <h4>Weight</h4>
-                    </div>
-                    <div class="col-sm-offset-3 col-sm-4">
-                        <h4>{{calulatedWeight}} lbs</h4>
-                    </div>
-                </div>
-
-                <div class="row profile-seperator">
-                    <div class="col-sm-1">
-                       <h4><img src="../images/icons/height.png" height="30" width="30"><h4>
-                    </div>
-                    <div class="col-sm-offset-1 col-sm-3">
-                        <h4>Height</h4>
-                    </div>
-                    <div class="col-sm-offset-3 col-sm-4">
-                        <h4>{{profile.height}} cms</h4>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
+
+
+        <div class="card card-margin col-lg-8 col-md-8 col-sm-10 col-xs-12">
+        <div class="container">
+            <div class="row">
+                Company Profile
+                <div class="col-sm-offset-1 col-sm-10">
+                    <div class="row profile-seperator">
+                        <div class="col-sm-1">
+                            <h4><img src="../images/icons/email.png" height="30" width="30"></h4>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-3">
+                            <h4>Position</h4>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-4">
+                            <h4>{{profile.position}}</h4>
+                        </div>
+                    </div>
+
+                    <div class="row profile-seperator">
+                        <div class="col-sm-1">
+                            <h4><img src="../images/icons/phone.png" height="30" width="30">
+                                <h4>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-3">
+                            <h4>Employment Type</h4>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-4">
+                            <h4>{{profile.employmentType}}</h4>
+                        </div>
+                    </div>
+
+                    <div class="row profile-seperator">
+                        <div class="col-sm-1">
+                            <h4><img src="../images/icons/fitbitdevice.png" height="30" width="30">
+                                <h4>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-3">
+                            <h4>Standard Hours</h4>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-4">
+                            <h4>{{profile.hours}}</h4>
+                        </div>
+                    </div>
+
+                    <div class="row profile-seperator">
+                        <div class="col-sm-1">
+                            <h4><img src="../images/icons/weight.png" height="30" width="30">
+                                <h4>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-3">
+                            <h4>Department ID</h4>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-4">
+                            <h4>{{profile.deptID}}</h4>
+                        </div>
+                    </div>
+
+                    <div class="row profile-seperator">
+                        <div class="col-sm-1">
+                            <h4><img src="../images/icons/height.png" height="30" width="30">
+                                <h4>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-3">
+                            <h4>Citizenship</h4>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-4">
+                            <h4>{{profile.citizenship}}</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+           <div class="card card-margin col-lg-8 col-md-8 col-sm-10 col-xs-12">
+        <div class="container">
+            <div class="row">
+                User Info
+                <div class="col-sm-offset-1 col-sm-10">
+                    <div class="row profile-seperator">
+                        <div class="col-sm-1">
+                            <h4><img src="../images/icons/email.png" height="30" width="30"></h4>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-3">
+                            <h4>Marital Status</h4>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-4">
+                            <h4>{{profile.maritalStatus}}</h4>
+                        </div>
+                    </div>
+
+                    <div class="row profile-seperator">
+                        <div class="col-sm-1">
+                            <h4><img src="../images/icons/phone.png" height="30" width="30">
+                                <h4>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-3">
+                            <h4>Military Status</h4>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-4">
+                            <h4>{{profile.militaryStatus}}</h4>
+                        </div>
+                    </div>
+
+                    <div class="row profile-seperator">
+                        <div class="col-sm-1">
+                            <h4><img src="../images/icons/fitbitdevice.png" height="30" width="30">
+                                <h4>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-3">
+                            <h4>Anual Compensation</h4>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-4">
+                            <h4>$ {{profile.annualCompensation}}</h4>
+                        </div>
+                    </div>
+
+                    <div class="row profile-seperator">
+                        <div class="col-sm-1">
+                            <h4><img src="../images/icons/weight.png" height="30" width="30">
+                                <h4>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-3">
+                            <h4>Paid Leaves</h4>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-4">
+                            <h4>{{profile.paidLeaves}} Hrs</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>

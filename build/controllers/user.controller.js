@@ -336,3 +336,75 @@ module.exports.nextPay = function (req, res) {
     }, query);
 
 };
+
+module.exports.previousAllPay = function (req, res) {
+    console.log('Previous Pay Details');
+
+    var empID = req.params.empID;
+
+    query = "select * from paycheck where empID = '" + empID + "' and date < curdate() order by date desc";
+
+    mysql.fetchData(function (err, results) {
+        if (err) {
+            res.status(500)
+                .json(err);
+        }
+        else if (results.length > 0) {
+            res.status(200)
+                .json(results);
+        }
+        else {
+            res.status(204)
+                .json(results);
+        }
+    }, query);
+
+};
+
+module.exports.lastPay = function (req, res) {
+    console.log('Last Pay Details');
+
+    var empID = req.params.empID;
+
+    query = "select p.date, p.amountPaid, s.federalTax, s.stateTax, s.localTax from paycheck p, salary s where p.empID = s.empID and p.empID = '" + empID + "' and date < curdate() order by date desc limit 1";
+
+    mysql.fetchData(function (err, results) {
+        if (err) {
+            res.status(500)
+                .json(err);
+        }
+        else if (results.length > 0) {
+            res.status(200)
+                .json(results);
+        }
+        else {
+            res.status(204)
+                .json(results);
+        }
+    }, query);
+
+};
+
+module.exports.profile = function (req, res) {
+    console.log('profile Details');
+
+    var empID = req.params.empID;
+
+    query = "select * from employee where empID = '" + empID + "'";
+
+    mysql.fetchData(function (err, results) {
+        if (err) {
+            res.status(500)
+                .json(err);
+        }
+        else if (results.length > 0) {
+            res.status(200)
+                .json(results);
+        }
+        else {
+            res.status(204)
+                .json(results);
+        }
+    }, query);
+
+};

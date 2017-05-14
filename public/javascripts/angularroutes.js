@@ -22,7 +22,7 @@ angular.module('angularRoutes', ['ngRoute']).config(['$routeProvider', '$locatio
             templateUrl: '../views/holidayCalendar.html',
             controller: 'holidaycalendarController'
         })
-         .when('/companyDirectory', {
+        .when('/companyDirectory', {
             templateUrl: '../views/companyDirectory.html',
             controller: 'companyDirectoryController'
         })
@@ -34,7 +34,11 @@ angular.module('angularRoutes', ['ngRoute']).config(['$routeProvider', '$locatio
             templateUrl: '../views/allAnnouncements.html',
             controller: 'allAnnouncementsController'
         })
-        
+        .when('/profile', {
+            templateUrl: '../views/profile.html',
+            controller: 'profileController'
+        })
+
         .otherwise({
             redirectTo: '/dashboard'
         });
