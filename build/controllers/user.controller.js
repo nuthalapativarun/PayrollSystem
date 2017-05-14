@@ -10,7 +10,7 @@ module.exports.login = function (req, res) {
     req.session.email = email;
     console.log('Email is:: %s', email);
     console.log('Password is:: %s', password);
-    query = "select * from profile where email = '" + email + "' and password = '" + password + "'";
+    query = "select * from employee where email = '" + email + "' and password = '" + password + "'";
 
     mysql.fetchData(function (err, results) {
         if (err) {

@@ -38,6 +38,10 @@ angular.module('angularRoutes', ['ngRoute']).config(['$routeProvider', '$locatio
             templateUrl: '../views/profile.html',
             controller: 'profileController'
         })
+         .when('/requestLeave', {
+            templateUrl: '../views/requestLeave.html',
+            controller: 'requestLeaveController'
+        })
 
         .otherwise({
             redirectTo: '/dashboard'

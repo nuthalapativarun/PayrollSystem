@@ -44,37 +44,7 @@ payrollApp.controller('dashboardController', function ($http, $window, $location
 		return monthNames[d.getMonth()];
 	}
 
-	var bar = new ProgressBar.Circle(donut, {
-		color: '#00FF7F',
-		// This has to be the same size as the maximum width to
-		// prevent clipping
-		strokeWidth: 4,
-		trailWidth: 1,
-		easing: 'easeInOut',
-		duration: 1400,
-		text: {
-			autoStyleContainer: false
-		},
-		from: { color: '#00FF7F', width: 4 },
-		to: { color: '#00FF7F', width: 4 },
-		// Set default step function for all animate calls
-		step: function (state, circle) {
-			circle.path.setAttribute('stroke', state.color);
-			circle.path.setAttribute('stroke-width', state.width);
 
-			var value = Math.round(circle.value() * 100);
-			if (value === 0) {
-				circle.setText('');
-			} else {
-				circle.setText(value + "%");
-			}
-
-		}
-	});
-	bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-	bar.text.style.fontSize = '2rem';
-
-	bar.animate(0.3);
 
 
 	$http.get('/api/user/announcement').then(function (response) {
@@ -108,6 +78,45 @@ payrollApp.controller('dashboardController', function ($http, $window, $location
 	$http.get('/api/user/all/leaveDetails/' + $scope.empId).then(function (response) {
 		$scope.leaveDetails = response.data;
 		console.log("201 Leave Response", $scope.leaveDetails);
+	});
+
+	$http.get('/api/user/profile/' + $scope.empId).then(function (response) {
+		$scope.profile = response.data["0"];
+		console.log("201 profile Response", $scope.profile);
+		$scope.leavesPercentageLeft = Number($scope.profile.leavesLeft) / Number($scope.profile.paidLeaves);
+		console.log("Per left", $scope.leavesPercentageLeft);
+
+		var bar = new ProgressBar.Circle(donut, {
+			color: '#00FF7F',
+			// This has to be the same size as the maximum width to
+			// prevent clipping
+			strokeWidth: 4,
+			trailWidth: 1,
+			easing: 'easeInOut',
+			duration: 1400,
+			text: {
+				autoStyleContainer: false
+			},
+			from: { color: '#00FF7F', width: 4 },
+			to: { color: '#00FF7F', width: 4 },
+			// Set default step function for all animate calls
+			step: function (state, circle) {
+				circle.path.setAttribute('stroke', state.color);
+				circle.path.setAttribute('stroke-width', state.width);
+
+				var value = Math.round(circle.value() * 100);
+				if (value === 0) {
+					circle.setText('');
+				} else {
+					circle.setText(value + "%");
+				}
+
+			}
+		});
+		bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+		bar.text.style.fontSize = '2rem';
+
+		bar.animate($scope.leavesPercentageLeft);
 	});
 
 });//end of dashboardController

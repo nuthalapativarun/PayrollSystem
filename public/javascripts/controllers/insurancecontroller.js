@@ -1,6 +1,7 @@
 payrollApp.controller('insuranceController', function ($http, $window, $location, $scope) {
 
     $scope.empId = localStorage.getItem("empId") || 'e1';
+    $scope.fullname = localStorage.getItem("fullName");
     $http.get('/api/user/insurance/' + $scope.empId).then(function (response) {
         $scope.insurance = response.data;
         console.log("201 Insurance Response", $scope.insurance);
@@ -15,6 +16,5 @@ payrollApp.controller('insuranceController', function ($http, $window, $location
         insCompanyName: "Aetna",
         monthlyPayment: "300"
     };
-    $scope.empName = "Daniel Craig";
 
 });
