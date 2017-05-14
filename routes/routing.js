@@ -23,4 +23,6 @@ module.exports = function (app) {
     app.get('/api/user/insurance/:empID', userCtrl.insuranceDetails);
 
     app.get('/api/user/dependent/:empID', userCtrl.dependentDetails);
+
+    app.get('/api/user/nextPay/:empID', userCtrl.nextPay);
 };
