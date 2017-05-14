@@ -1,17 +1,11 @@
-payrollApp.controller('profileController',function($http,$window,$location,$scope){
+payrollApp.controller('profileController', function ($http, $window, $location, $scope) {
 
-$scope.email = localStorage.getItem("email");
-if(!$scope.email){
-		$location.path('/login');
-	}
-$http.get('/api/user/profile/'+$scope.email).then(function (resp) {
-					 if (resp.status === 200) {
-						
-						$scope.profile = resp.data["0"];
-						console.log("Profile data from DB:", $scope.profile);
-						$scope.calulatedWeight = (Number($scope.profile.weight) * 2.2).toFixed(2);
-                }
-			});//End of get Profile
+	$scope.empId = localStorage.getItem("empId") || 'e1';
+
+	$http.get('/api/user/profile/' + $scope.empId).then(function (response) {
+		$scope.profile = response.data["0"];
+        console.log("201 profile Response", $scope.profile);
+	});
 
 
-});			//End of profile controller
+});
