@@ -3,7 +3,8 @@
     <div class="row">
         <div class="card col col-md-9 col-lg-9 col-sm-11">
             <div ng-repeat="announcement in announcements" class="border-bottom">
-                <h5><strong>{{announcement.aHeading}}</strong></h5>
+                <h5><img src="{{announcement.imgURL}}" style="width:30px; height:30px">
+                    <strong>{{announcement.aHeading}}</strong></h5>
                 <h6>{{announcement.aDate}}</h6>
                 <h6>{{announcement.aText}}</h6>
             </div>
