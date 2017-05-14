@@ -19,7 +19,7 @@
 								<th>Reason</th>
 								<th>Hours</th>
 							</tr>
-							<tr ng-repeat="timeOff in timeOffDetails">
+							<tr ng-repeat="timeOff in leaveDetails">
 								<td>{{timeOff.date}}</td>
 								<td>{{timeOff.reason}}</td>
 								<td>{{timeOff.hours}}</td>
@@ -41,7 +41,8 @@
 					<strong>{{announcement.aHeading}}</strong></h5>
 				<h6>{{announcement.aDate}}</h6>
 				<h6>{{announcement.aText}}</h6>
-			</div>
+			</div><br>
+			<center><a href="/allAnnouncements"><button class="btn btn-primary">View All Announcements</button></a>
 		</div>
 	</div>
 	<div class="row">
@@ -66,11 +67,11 @@
 		<div class="card col col-md-4 col-lg-4 col-sm-6">
 			<h4><strong>Next Holiday</strong></h4>
 			<center>
-				<h5><strong>Memorial Day</strong></h5>
-				<p>May</p>
+				<h5><strong>{{holiday.hName}}</strong></h5>
+				<p>{{monthName}}</p>
 				<p style="font-size:45px;">29</p>
 				<p>Monday</p>
-				<h6>In {{daysLeft}} days</h6>
+				<h6>In {{diffDays}} days</h6>
 
 			</center>
 		</div>

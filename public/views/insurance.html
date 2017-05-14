@@ -3,7 +3,7 @@
     <div class="row">
         <div class="card col col-md-7 col-lg-7 col-sm-11">
             <h4><strong>Medical</strong></h4>
-            <h4 class="right"><strong>{{insurance.insCompanyName}}</strong></h4>
+            <h4 class="right"><strong>{{insurance["0"].insCompanyName}}</strong></h4>
             <br><br>
             <center>
                 <strong>Covered</strong>
@@ -14,7 +14,7 @@
         <div class="card col col-md-3 col-lg-3 col-sm-6">
             <h4><strong>Monthly Payment</strong></h4>
             <center>
-                <p style="font-size:45px;">$ {{insurance.monthlyPayment}}</p>
+                <p style="font-size:45px;">$ {{insurance["0"].monthlyPayment}}</p>
                 <h5>at the end of the month</h5>
             </center>
         </div>
@@ -30,7 +30,7 @@
                         
                     </tr>
                     <tr ng-repeat="dependent in dependents">
-                        <td>{{dependent.name}}</td>
+                        <td>{{dependent.depName}}</td>
                         <td>{{dependent.relation}}</td>
                     </tr>
                 </table>

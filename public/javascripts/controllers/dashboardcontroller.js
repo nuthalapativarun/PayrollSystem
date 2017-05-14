@@ -1,5 +1,5 @@
 payrollApp.controller('dashboardController', function ($http, $window, $location, $scope) {
-
+	$scope.empId = localStorage.getItem("empId") || 'e1';
 	var vm = this;
 	var todayDate = new Date();
 	var dateFormat = formatDate(todayDate);
@@ -23,7 +23,7 @@ payrollApp.controller('dashboardController', function ($http, $window, $location
 
 		if (month.length < 2) month = '0' + month;
 		if (day.length < 2) day = '0' + day;
-		this.date = [year, Number(month), day - 7]
+		this.date = [year, Number(month), Number(day) + 3]
 		return this.date;
 	}
 
@@ -34,6 +34,14 @@ payrollApp.controller('dashboardController', function ($http, $window, $location
 		var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 		return days[d.getDay()];
+	}
+
+	function monthName(dStr) {
+		var d = new Date(dStr);
+		var monthNames = ["January", "February", "March", "April", "May", "June",
+			"July", "August", "September", "October", "November", "December"
+		];
+		return monthNames[d.getMonth()];
 	}
 
 	var bar = new ProgressBar.Circle(donut, {
@@ -68,61 +76,48 @@ payrollApp.controller('dashboardController', function ($http, $window, $location
 
 	bar.animate(0.3);
 
-	$scope.nextHoliday = "2017-05-29";
-	$scope.timeOffDetails = [
-		{
-			date: "2017-04-28",
-			reason: "Sick",
-			hours: "8hr"
 
-		}
-	];
-	$scope.announcements = [
-		{
-			aHeading: "Server Maintanance",
-			aDate: "2017-05-19",
-			aText: "Our system will not be accessible because they'll be in maintanance on May 19th",
-			imgUrl: '../../images/icons/maintainance.png'
-		},
-		{
-			aHeading: "Celebration of Varun's Birthday",
-			aDate: "2017-03-18",
-			aText: "Let's make it count",
-			imgUrl: '../../images/icons/birthday.png'
 
-		},
-		{
-			aHeading: "Celebration of Sanketh's Birthday",
-			aDate: "2017-08-31",
-			aText: "We hope a Great Party",
-			imgUrl: '../../images/icons/birthday.png'
+	// var oneDay = 24 * 60 * 60 * 1000;
+	// var firstDate = new Date();
+	// var secondDate = new Date(2017, 05, 15);
 
-		},
-		{
-			aHeading: "WebApp Release",
-			aDate: "2017-09-19",
-			aText: "Deadline for WebApp release",
-			imgUrl: '../../images/icons/release.png'
+	// var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / (oneDay)));
+	// console.log("Diff", diffDays);
 
-		}
-		
 
-	];
 
-	$scope.projects = [
-		{
-			projName: "Android App",
-			teamLead: "Sanketh Doddapaneni",
-			client: "Full-stack RAT"
+	$http.get('/api/user/announcement').then(function (response) {
+		$scope.announcements = response.data;
+		console.log("201 Announcements Response", $scope.announcements);
+	});
 
-		},
-		{
-			projName: "Web App",
-			teamLead: "Srinadh Krothapalli",
-			client: "CareX"
 
-		}
+	$http.get('/api/user/viewProjects/' + $scope.empId).then(function (response) {
+		$scope.projects = response.data;
+		console.log("201 Projects Response", $scope.projects);
+	});
 
-	];
+
+	$http.get('/api/user/holiday').then(function (response) {
+		$scope.holiday = response.data["0"];
+		console.log("201 Holidays Response", $scope.holiday);
+		$scope.date = $scope.holiday.hDate;
+		$scope.monthName = monthName($scope.date);
+		var dat = formatDay($scope.date);
+		console.log("Date", dat);
+		var oneDay = 24 * 60 * 60 * 1000;
+		var firstDate = new Date();
+		var secondDate = new Date(dat[0], dat[1] - 1, dat[2]);
+
+		$scope.diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / (oneDay)));
+		console.log("DIff", $scope.diffDays);
+	});
+
+
+	$http.get('/api/user/all/leaveDetails/' + $scope.empId).then(function (response) {
+		$scope.leaveDetails = response.data;
+		console.log("201 Leave Response", $scope.leaveDetails);
+	});
 
 });//end of dashboardController
