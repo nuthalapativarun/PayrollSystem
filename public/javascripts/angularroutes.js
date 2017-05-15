@@ -16,6 +16,11 @@ angular.module('angularRoutes', ['ngRoute']).config(['$routeProvider', '$locatio
             controller: 'adminloginController',
             controllerAs: 'ctrl'
         })
+         .when('/addEmployee', {
+            templateUrl: '../views/addEmployee.html',
+            controller: 'addemployeeController',
+            controllerAs: 'ctrl'
+        })
         .when('/adminDashboard', {
             templateUrl: '../views/adminDashboard.html',
             controller: 'admindashboardController',
