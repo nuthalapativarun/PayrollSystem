@@ -20,13 +20,17 @@ payrollApp.controller('holidaycalendarController', function ($http, $window, $lo
     return monthNames[d.getMonth()];
   }
 
+    function dayDate(dStr) {
+        var d = new Date(dStr);
+        return d.getDate() + 3;
+    }
 	$http.get('/api/user/holiday').then(function (response) {
     $scope.holiday = response.data["0"];
     console.log("201 Holidays Response", $scope.holiday);
     $scope.date = $scope.holiday.hDate;
     $scope.monthName = monthName($scope.date);
     var dat = formatDay($scope.date);
-    console.log("Date", dat);
+    $scope.holidayDay = dayDate($scope.date);
     var oneDay = 24 * 60 * 60 * 1000;
     var firstDate = new Date();
     var secondDate = new Date(dat[0], dat[1] - 1, dat[2]);
