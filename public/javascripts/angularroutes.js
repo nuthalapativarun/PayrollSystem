@@ -6,6 +6,21 @@ angular.module('angularRoutes', ['ngRoute']).config(['$routeProvider', '$locatio
             controller: 'loginController',
             controllerAs: 'ctrl'
         })
+         .when('/signup', {
+            templateUrl: '../views/signup.html',
+            controller: 'signupController',
+            controllerAs: 'ctrl'
+        })
+         .when('/adminLogin', {
+            templateUrl: '../views/adminLogin.html',
+            controller: 'adminloginController',
+            controllerAs: 'ctrl'
+        })
+        .when('/adminDashboard', {
+            templateUrl: '../views/adminDashboard.html',
+            controller: 'admindashboardController',
+            controllerAs: 'ctrl'
+        })
         .when('/dashboard', {
             templateUrl: '../views/dashboard.html',
             controller: 'dashboardController'
