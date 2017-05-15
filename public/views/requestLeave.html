@@ -1,1 +1,24 @@
-{{empId}}
+<h3>Leave Request</h3>
+<div class="row top-space">
+    <div class="card card-margin col-lg-6 col-md-6 col-sm-8">
+        <h3><strong><img src="../images/icons/bookappointment.png" height="50" width="50"> Request a Leave</strong></h3>
+
+        <form ng-submit="requestLeave()">
+
+            <div class="form-group">
+                <label><strong>Select Appointment Date</strong></label>
+                <input type="date" ng-model="date" name="date" class="form-control input-lg" id="date" required>
+            </div>
+            <div class="form-group">
+                <label><strong>Reason</strong></label>
+                <input type="text" ng-model="reason" name="reason" class="form-control input-lg" id="reason" placeholder="Reason" required>
+            </div>
+            <div class="form-group">
+                <label><strong>Hours Requested</strong></label>
+                <input type="number" ng-model="hours" name="hours" class="form-control input-lg" id="hours" required>
+            </div>
+
+            <button type="submit" id="submit" class="btn btn-info btn-lg">Submit</button>
+        </form>
+    </div>
+</div>

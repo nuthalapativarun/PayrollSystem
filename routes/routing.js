@@ -31,4 +31,8 @@ module.exports = function (app) {
     app.get('/api/user/lastPay/:empID', userCtrl.lastPay);
 
     app.get('/api/user/profile/:empID', userCtrl.profile);
+
+    app.post('/api/user/insert/leave', userCtrl.insertLeave);
+    
+    app.post('/api/user/update/leave', userCtrl.updateLeavesLeft);
 };
