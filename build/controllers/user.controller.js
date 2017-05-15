@@ -411,3 +411,61 @@ module.exports.profile = function (req, res) {
     }, query);
 
 };
+
+module.exports.insertLeave = function (req, res) {
+    console.log("Inserting Leave");
+
+    var user = req.body;
+    req.session.email = user.email;
+    console.log("Leave is: ", JSON.stringify(user));
+
+    query = "INSERT INTO empLeave (date, reason, hours, empID) VALUES (?,?,?,?)";
+
+    var connection = mysql.getConnection();
+    var sqlquery = connection.query(query, [user.date, user.reason, user.hours, user.empID], function (err, results) {
+        if (err) {
+            console.log(err);
+            res
+                .status(500)
+                .json(err);
+        } else {
+            console.log(results);
+            console.log("Leave inserted into empLeave Table");
+            res
+                .status(201)
+                .json(results);
+        }
+    });
+    console.log("SQL Query:", sqlquery.sql);
+    console.log("\nConnection closed");
+    connection.end();
+};
+
+module.exports.updateLeavesLeft = function (req, res) {
+    console.log("Inserting Leave");
+
+    var user = req.body;
+    req.session.empID = user.empID;
+    console.log("Leave is: ", JSON.stringify(user));
+
+    query = "UPDATE employee SET leavesLeft = leavesleft - ? WHERE empID = ?";
+   
+    var connection = mysql.getConnection();
+    var sqlquery = connection.query(query, [user.hours,user.empID], function (err, results) {
+        if (err) {
+            console.log(err);
+            res
+                .status(500)
+                .json(err);
+        } else {
+            console.log(results);
+            console.log("Leave Left updated into emp Table");
+            res
+                .status(201)
+                .json(results);
+        }
+    });
+    console.log("SQL Query:", sqlquery.sql);
+    console.log("\nConnection closed");
+    connection.end();
+};
