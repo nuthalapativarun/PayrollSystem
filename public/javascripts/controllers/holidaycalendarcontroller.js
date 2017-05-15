@@ -22,7 +22,7 @@ payrollApp.controller('holidaycalendarController', function ($http, $window, $lo
 
     function dayDate(dStr) {
         var d = new Date(dStr);
-        return d.getDate() + 3;
+        return d.getDate() + 1;
     }
 	$http.get('/api/user/holiday').then(function (response) {
     $scope.holiday = response.data["0"];

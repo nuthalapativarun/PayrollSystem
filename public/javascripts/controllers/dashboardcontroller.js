@@ -46,7 +46,7 @@ payrollApp.controller('dashboardController', function ($http, $window, $location
 
     function dayDate(dStr) {
         var d = new Date(dStr);
-        return d.getDate() + 3;
+        return d.getDate() + 1;
     }
 
 
