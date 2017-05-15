@@ -44,7 +44,10 @@ payrollApp.controller('dashboardController', function ($http, $window, $location
 		return monthNames[d.getMonth()];
 	}
 
-
+    function dayDate(dStr) {
+        var d = new Date(dStr);
+        return d.getDate() + 3;
+    }
 
 
 	$http.get('/api/user/announcement').then(function (response) {
@@ -65,7 +68,7 @@ payrollApp.controller('dashboardController', function ($http, $window, $location
 		$scope.date = $scope.holiday.hDate;
 		$scope.monthName = monthName($scope.date);
 		var dat = formatDay($scope.date);
-		console.log("Date", dat);
+		$scope.holidayDay = dayDate($scope.date);
 		var oneDay = 24 * 60 * 60 * 1000;
 		var firstDate = new Date();
 		var secondDate = new Date(dat[0], dat[1] - 1, dat[2]);
