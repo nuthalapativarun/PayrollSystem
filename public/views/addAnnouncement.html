@@ -2,9 +2,8 @@
     <div class="col-sm-6 col-sm-offset-3">
         <form ng-submit="ctrl.addAnnouncement()">
             <div class="form-group">
-                <label><strong>Announcement Date</strong></label>
-                <input type="text" ng-model="ctrl.announcement.aDate" name="anouncementDate" id="anouncementDate" class="form-control input-lg" placeholder="YYYY-MM-DD"
-                    required>
+                <label><strong>Select Announcement Date</strong></label>
+                <input type="date" ng-model="date" name="date" class="form-control input-lg" id="date" required>
             </div>
             <div class="form-group">
                 <label><strong>Announcement Heading</strong></label>
