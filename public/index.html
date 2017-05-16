@@ -195,7 +195,7 @@
         <!--header end-->
 
         <!--sidebar start-->
-        <aside ng-if="isLoggedIn">
+        <aside ng-if="isLoggedIn && !isAdminLoggedIn">
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu">
@@ -237,7 +237,7 @@
                     </li>
                     <li class="sub-menu">
                         <a href="/requestLeave" class="">
-                            <img src="./images/icons/prediction.png" height="30" width="30">
+                            <img src="./images/icons/requestleave.png" height="30" width="30">
                             <span>Request Leave</span>
                         </a>
                     </li>
@@ -251,7 +251,7 @@
                 <!--sidebar menu end-->
             </div>
         </aside>
-        <aside ng-if="isAdminLoggedIn">
+        <aside ng-if="isAdminLoggedIn && !isLoggedIn">
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu">
@@ -263,7 +263,7 @@
                     </li>
                     <li class="sub-menu">
                         <a class="" href="/addEmployee">
-                            <img src="./images/icons/dashboard.png" height="30" width="30">
+                            <img src="./images/icons/male.png" height="30" width="30">
                             <span> Add Employee</span>
                         </a>
                     </li>
@@ -281,19 +281,19 @@
                     </li>
                     <li class="sub-menu">
                         <a href="/releasePay" class="">
-                            <img src="./images/icons/prediction.png" height="30" width="30">
+                            <img src="./images/icons/money.png" height="30" width="30">
                             <span>Release Pay</span>
                         </a>
                     </li>
                     <li class="sub-menu">
                         <a href="/addAnnouncement" class="">
-                            <img src="./images/icons/prediction.png" height="30" width="30">
+                            <img src="./images/icons/anouncement.png" height="30" width="30">
                             <span>Add Announcement</span>
                         </a>
                     </li>
                     <li class="sub-menu">
                         <a href="/analytics" class="">
-                            <img src="./images/icons/prediction.png" height="30" width="30">
+                            <img src="./images/icons/analytics.png" height="30" width="30">
                             <span>Analytics</span>
                         </a>
                     </li>
