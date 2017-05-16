@@ -50,4 +50,6 @@ module.exports = function (app) {
 
     app.post('/api/admin/insert/paycheck', adminCtrl.insertPaycheck);
 
+    app.get('/api/admin/analytics/totalSalary/:deptName', adminCtrl.totalSalary);
+
 };

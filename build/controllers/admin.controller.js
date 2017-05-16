@@ -72,3 +72,27 @@ module.exports.insertPaycheck = function (req, res) {
     console.log("\nConnection closed");
     connection.end();
 };
+
+module.exports.totalSalary = function (req, res) {
+    console.log('analytics 1 Details');
+
+    var deptName = req.params.deptName;
+
+    query = "select p.date,sum(p.amountPaid) as TotalSalary, d.deptName from paycheck p, employee e, department d where p.empID = e.empID and e.deptID = d.deptID and deptName = '" + deptName + "' group by deptName, date having date < curdate() order by date desc limit 1";
+
+    mysql.fetchData(function (err, results) {
+        if (err) {
+            res.status(500)
+                .json(err);
+        }
+        else if (results.length > 0) {
+            res.status(200)
+                .json(results);
+        }
+        else {
+            res.status(204)
+                .json(results);
+        }
+    }, query);
+
+}

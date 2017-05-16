@@ -72,6 +72,10 @@ angular.module('angularRoutes', ['ngRoute']).config(['$routeProvider', '$locatio
             templateUrl: '../views/releasepay.html',
             controller: 'releasePayController'
         })
+        .when('/analytics', {
+            templateUrl: '../views/analytics.html',
+            controller: 'analyticsController'
+        })
 
         .otherwise({
             redirectTo: '/dashboard'
