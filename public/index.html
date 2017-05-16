@@ -146,6 +146,7 @@
     <script src="javascripts/controllers/adminlogincontroller.js"></script>
     <script src="javascripts/controllers/admindashboardcontroller.js"></script>
      <script src="javascripts/controllers/addemployeecontroller.js"></script>
+      <script src="javascripts/controllers/addannouncementcontroller.js"></script>
 
 
 
@@ -154,7 +155,7 @@
 
 <body ng-app="payrollApp" ng-controller="payrollController" ng-cloak>
     <section id="container">
-        <header class="header dark-bg" ng-if="isLoggedIn">
+        <header class="header dark-bg" ng-if="isLoggedIn || isAdminLoggedIn">
             <div class="toggle-nav">
                 <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
             </div>

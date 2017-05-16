@@ -35,4 +35,6 @@ module.exports = function (app) {
     app.post('/api/user/insert/leave', userCtrl.insertLeave);
     
     app.post('/api/user/update/leave', userCtrl.updateLeavesLeft);
+    app.post('/api/admin/insert/emp', userCtrl.addEmployee);
+    app.post('/api/admin/insert/announcement', userCtrl.insertAnnouncement);
 };

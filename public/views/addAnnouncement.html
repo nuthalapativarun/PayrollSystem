@@ -1,0 +1,24 @@
+<div class="row card card-margin  col-sm-9">
+    <div class="col-sm-6 col-sm-offset-3">
+        <form ng-submit="ctrl.addAnnouncement()">
+            <div class="form-group">
+                <label><strong>Announcement Date</strong></label>
+                <input type="text" ng-model="ctrl.announcement.aDate" name="anouncementDate" id="anouncementDate" class="form-control input-lg" placeholder="YYYY-MM-DD"
+                    required>
+            </div>
+            <div class="form-group">
+                <label><strong>Announcement Heading</strong></label>
+                <input type="text" ng-model="ctrl.announcement.aHeading" name="aHeading" id="aHeading" class="form-control input-lg" placeholder="XXX Birthday"
+                    required>
+            </div>
+            <div class="form-group">
+                <label><strong>Announcement Text</strong></label>
+                <input type="text" ng-model="ctrl.announcement.aText" name="aText" id="aText" class="form-control input-lg" placeholder="Information of Announcement"
+                    required>
+            </div>
+           
+            <button type="submit" id="submit" class="btn btn-info btn-lg">Add User</button>
+        </form>
+        <div class="alert alert-danger" ng-if="error">{{error}}</div>
+    </div>
+</div>

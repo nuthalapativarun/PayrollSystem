@@ -411,7 +411,35 @@ module.exports.profile = function (req, res) {
     }, query);
 
 };
+module.exports.addEmployee = function (req, res) {               
+    console.log("User Data Post to database");
 
+      var user = req.body;
+    req.session.empID = user.empID;
+    console.log("User is: ", JSON.stringify(user));
+
+    query = "INSERT INTO employee (empID, fullname, ssn, gender, maritalStatus, citizenship, militaryStatus, address, dob, email, serviceDate, employmentType, annualCompensation, hours, deptID, position, password, phone, paidLeaves, leavesLeft) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    var connection = mysql.getConnection();
+    var sqlquery = connection.query(query, [user.empID, user.fullname, user.ssn, user.gender, user.maritalStatus, user.citizenship, user.militaryStatus, user.address, user.dob, user.email, user.serviceDate, user.employmentType, user.annualCompensation, user.hours, user.deptID, user.position, user.password, user.phone, user.paidLeaves, user.leavesLeft,], function (err, results) {
+        if (err) {
+            console.log(err);
+            res
+                .status(500)
+                .json(err);
+        } else {
+            console.log(results);
+            console.log("User inserted into User Table");
+            res
+                .status(201)
+                .json(results);
+        }
+    });
+    console.log("SQL Query:", sqlquery.sql);
+    console.log("\nConnection closed");
+    connection.end();
+};
+    
 module.exports.insertLeave = function (req, res) {
     console.log("Inserting Leave");
 
@@ -460,6 +488,34 @@ module.exports.updateLeavesLeft = function (req, res) {
         } else {
             console.log(results);
             console.log("Leave Left updated into emp Table");
+            res
+                .status(201)
+                .json(results);
+        }
+    });
+    console.log("SQL Query:", sqlquery.sql);
+    console.log("\nConnection closed");
+    connection.end();
+};
+
+module.exports.insertAnnouncement = function (req, res) {
+    console.log("Inserting announcement");
+
+    var user = req.body;
+    console.log("announcement is: ", JSON.stringify(user));
+
+    query = "INSERT INTO announcement (aDate, aHeading, aText) VALUES (?, ?, ?)";
+
+    var connection = mysql.getConnection();
+    var sqlquery = connection.query(query, [user.aDate, user.aHeading, user.aText], function (err, results) {
+        if (err) {
+            console.log(err);
+            res
+                .status(500)
+                .json(err);
+        } else {
+            console.log(results);
+            console.log("announcment inserted into announcement Table");
             res
                 .status(201)
                 .json(results);
