@@ -52,4 +52,6 @@ module.exports = function (app) {
 
     app.get('/api/admin/analytics/totalSalary/:deptName', adminCtrl.totalSalary);
 
+    app.get('/api/admin/analytics/quarterlySalary/:fullname', adminCtrl.salaryQuarter);
+
 };

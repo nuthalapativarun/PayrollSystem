@@ -95,4 +95,27 @@ module.exports.totalSalary = function (req, res) {
         }
     }, query);
 
-}
+};
+module.exports.salaryQuarter = function (req, res) {
+    console.log('analytics 2 Details');
+
+    var fullname = req.params.fullname;
+
+    query = "select p.empID,sum(p.amountPaid) as TotalSalary,t.quarter,d.deptName,s.federalTax+s.stateTax+s.localTax as TotalTax from paycheck p, time_dimension t,employee e,department d,salary s where p.date = t.db_date and p.empID = e.empID and e.deptID = d.deptID and e.empID = s.empID and e.fullname = '" + fullname + "' group by p.empID,t.quarter";
+
+    mysql.fetchData(function (err, results) {
+        if (err) {
+            res.status(500)
+                .json(err);
+        }
+        else if (results.length > 0) {
+            res.status(200)
+                .json(results);
+        }
+        else {
+            res.status(204)
+                .json(results);
+        }
+    }, query);
+
+};
