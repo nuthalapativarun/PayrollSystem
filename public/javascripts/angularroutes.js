@@ -6,17 +6,18 @@ angular.module('angularRoutes', ['ngRoute']).config(['$routeProvider', '$locatio
             controller: 'loginController',
             controllerAs: 'ctrl'
         })
-         .when('/signup', {
+
+        .when('/signup', {
             templateUrl: '../views/signup.html',
             controller: 'signupController',
             controllerAs: 'ctrl'
         })
-         .when('/adminLogin', {
+        .when('/adminLogin', {
             templateUrl: '../views/adminLogin.html',
             controller: 'adminloginController',
             controllerAs: 'ctrl'
         })
-         .when('/addEmployee', {
+        .when('/addEmployee', {
             templateUrl: '../views/addEmployee.html',
             controller: 'addemployeeController',
             controllerAs: 'ctrl'
@@ -63,9 +64,13 @@ angular.module('angularRoutes', ['ngRoute']).config(['$routeProvider', '$locatio
             templateUrl: '../views/profile.html',
             controller: 'profileController'
         })
-         .when('/requestLeave', {
+        .when('/requestLeave', {
             templateUrl: '../views/requestLeave.html',
             controller: 'requestLeaveController'
+        })
+        .when('/releasePay', {
+            templateUrl: '../views/releasepay.html',
+            controller: 'releasePayController'
         })
 
         .otherwise({

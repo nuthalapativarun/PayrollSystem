@@ -1,5 +1,6 @@
 payrollApp.controller('addemployeeController', function ($scope,$http,$location,$rootScope,$window) {
     console.log("In admin dashboard controller");
+
    this.user = {};
     this.addEmployee = function(){
          
@@ -16,5 +17,9 @@ payrollApp.controller('addemployeeController', function ($scope,$http,$location,
             }).catch(function (error) {
                 console.log(error);
             });
+
+    this.addEmployee = function(){
+        console.log(this.user);
     }
+};
 });

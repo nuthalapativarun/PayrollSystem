@@ -46,7 +46,7 @@ payrollApp.controller('dashboardController', function ($http, $window, $location
 
     function dayDate(dStr) {
         var d = new Date(dStr);
-        return d.getDate() + 3;
+        return d.getDate() + 1;
     }
 
 
@@ -69,6 +69,7 @@ payrollApp.controller('dashboardController', function ($http, $window, $location
 		$scope.monthName = monthName($scope.date);
 		var dat = formatDay($scope.date);
 		$scope.holidayDay = dayDate($scope.date);
+		$scope.dayName = dayName($scope.date);
 		var oneDay = 24 * 60 * 60 * 1000;
 		var firstDate = new Date();
 		var secondDate = new Date(dat[0], dat[1] - 1, dat[2]);
