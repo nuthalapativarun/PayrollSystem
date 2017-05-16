@@ -143,6 +143,13 @@
     <script src="javascripts/controllers/contactuscontroller.js"></script>
     <script src="javascripts/controllers/allannouncementscontroller.js"></script>
     <script src="javascripts/controllers/requestleavecontroller.js"></script>
+    <script src="javascripts/controllers/adminlogincontroller.js"></script>
+    <script src="javascripts/controllers/admindashboardcontroller.js"></script>
+    <script src="javascripts/controllers/addemployeecontroller.js"></script>
+    <script src="javascripts/controllers/addannouncementcontroller.js"></script>
+    <script src="javascripts/controllers/addemployeecontroller.js"></script>
+    <script src="javascripts/controllers/releasePaycontroller.js"></script>
+
 
 
 
@@ -151,7 +158,7 @@
 
 <body ng-app="payrollApp" ng-controller="payrollController" ng-cloak>
     <section id="container">
-        <header class="header dark-bg" ng-if="isLoggedIn">
+        <header class="header dark-bg" ng-if="isLoggedIn || isAdminLoggedIn">
             <div class="toggle-nav">
                 <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
             </div>
@@ -222,12 +229,6 @@
                         </a>
                     </li>
                     <li class="sub-menu">
-                        <a href="/contacUs" class="">
-                            <img src="./images/icons/contactus.png" height="30" width="30">
-                            <span> Contact Us</span>
-                        </a>
-                    </li>
-                    <li class="sub-menu">
                         <a href="/allAnnouncements" class="">
                             <img src="./images/icons/prediction.png" height="30" width="30">
                             <span>All Announcements</span>
@@ -237,6 +238,49 @@
                         <a href="/requestLeave" class="">
                             <img src="./images/icons/prediction.png" height="30" width="30">
                             <span>Request Leave</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/contacUs" class="">
+                            <img src="./images/icons/contactus.png" height="30" width="30">
+                            <span> Contact Us</span>
+                        </a>
+                    </li>
+                </ul>
+                <!--sidebar menu end-->
+            </div>
+        </aside>
+        <aside ng-if="isAdminLoggedIn">
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu">
+                    <li class="sub-menu">
+                        <a class="" href="/adminDashboard">
+                            <img src="./images/icons/dashboard.png" height="30" width="30">
+                            <span> Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a class="" href="/addEmployee">
+                            <img src="./images/icons/dashboard.png" height="30" width="30">
+                            <span> Add Employee</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/companyDirectory" class="">
+                            <img src="./images/icons/directory.png" height="30" width="30">
+                            <span> Company Directory</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/allAnnouncements" class="">
+                            <img src="./images/icons/prediction.png" height="30" width="30">
+                            <span>All Announcements</span>
+
+                        <a href="/releasePay" class="">
+                            <img src="./images/icons/prediction.png" height="30" width="30">
+                            <span>Release Pay</span>
+
                         </a>
                     </li>
                 </ul>

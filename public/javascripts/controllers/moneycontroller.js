@@ -76,7 +76,7 @@ payrollApp.controller('moneyController', function ($http, $window, $location, $s
         $scope.paychecks = response.data;
         console.log("201 Last paychecks Response", $scope.paychecks);
 
-        Highcharts.chart('calories', {
+        Highcharts.chart('lastPaychecks', {
             chart: {
                 type: 'column'
             },
@@ -109,7 +109,9 @@ payrollApp.controller('moneyController', function ($http, $window, $location, $s
                 name: 'Months',
                 data: [
                     [monthName($scope.paychecks[0].date), Number($scope.paychecks[0].amountPaid)],
-                    [monthName($scope.paychecks[1].date), Number($scope.paychecks[1].amountPaid)]
+                    [monthName($scope.paychecks[1].date), Number($scope.paychecks[1].amountPaid)],
+                    [monthName($scope.paychecks[2].date), Number($scope.paychecks[2].amountPaid)],
+                    [monthName($scope.paychecks[3].date), Number($scope.paychecks[3].amountPaid)]
                 ]
             }]
         });

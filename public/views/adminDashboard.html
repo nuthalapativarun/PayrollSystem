@@ -1,0 +1,90 @@
+<h3>Company Dashboard</h3>
+<div class="container">
+    <div class="row">
+        <div class="card col col-md-7 col-lg-7 col-sm-11">
+            <h4><strong>New Employees</strong></h4>
+            <br><br>
+            <div class="row">
+                <div class="col col-md-6 col-lg-6 col-sm-6 border-right">
+                    <center>
+                        <br>
+                        <p style="font-size:45px;">{{empLength}}</p>
+                        <p>Employees Added Last Week</p>
+                    </center>
+                </div>
+                <div class="col col-md-6 col-lg-6 col-sm-6">
+                    <center> Employee Names
+                        <table class="tableCustom" ng-if="employees != '' ">
+                            <tr>
+                                <th class="center">Name</th>
+                            </tr>
+                            <tr ng-repeat="employee in employees" class="right">
+                                <td class="center">{{employee.fullname}}</td>
+                            </tr>
+                        </table>
+                        <p ng-if="employees == '' " class="pdng-top"><strong>No Employees Addded in Last Week</strong></p>
+                    </center>
+                </div>
+
+            </div>
+            <br><br>
+            <center><a href="/companyDirectory"><button class="btn btn-primary">View All Employees</button></a>
+        </div>
+        <div class="card col col-md-4 col-lg-4 col-sm-6" style="height:415px">
+            <h4><strong>Anouncements</strong></h4>
+            <div ng-repeat="announcement in announcements" class="border-bottom">
+                <h5><img src="{{announcement.imgURL}}" style="width:30px; height:30px">
+                    <strong>{{announcement.aHeading}}</strong></h5>
+                <h6>{{announcement.aDate}}</h6>
+                <h6>{{announcement.aText}}</h6>
+            </div><br>
+            <center><a href="/allAnnouncements"><button class="btn btn-primary">View All Announcements</button></a>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="card col col-md-7 col-lg-7 col-sm-11">
+            <h4><strong>Pay Checks</strong></h4>
+            <br><br>
+            <div class="row">
+                <div class="col col-md-6 col-lg-6 col-sm-6 border-right">
+                    <center>
+                        <h4><strong>Last Paycheck</strong></h4>
+                        <p>On</p>
+                        <p>{{LastmonthName}}</p>
+                        <p style="font-size:45px;">{{Lastpaydate}}</p>
+                        <p>{{LastdayName}}</p>
+                        <h6>In {{LastdiffDays}} days</h6>
+
+                    </center>
+                </div>
+                <div class="col col-md-6 col-lg-6 col-sm-6">
+                    <center>
+                        <h4><strong>Next Paycheck</strong></h4>
+                        <p>On</p>
+                        <p>{{NextmonthName}}</p>
+                        <p style="font-size:45px;">{{Nextpaydate}}</p>
+                        <p>{{NextdayName}}</p>
+                        <h6>In {{nextdiffDays}} days</h6>
+
+                    </center>
+                </div>
+
+            </div>
+        </div>
+        <div class="card col col-md-4 col-lg-4 col-sm-6">
+            <h4><strong>Next Holiday</strong></h4>
+            <center>
+                <h5><strong>{{holiday.hName}}</strong></h5>
+                <p>{{monthName}}</p>
+                <p style="font-size:45px;">{{holidayDay}}</p>
+                <p>{{dayName}}</p>
+                <h6>In {{diffDays}} days</h6>
+
+            </center>
+        </div>
+
+    </div>
+
+
+</div>

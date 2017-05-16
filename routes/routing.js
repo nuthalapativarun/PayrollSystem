@@ -1,4 +1,5 @@
 var userCtrl = require('../build/controllers/user.controller');
+var adminCtrl = require('../build/controllers/admin.controller');
 
 module.exports = function (app) {
 
@@ -35,4 +36,16 @@ module.exports = function (app) {
     app.post('/api/user/insert/leave', userCtrl.insertLeave);
     
     app.post('/api/user/update/leave', userCtrl.updateLeavesLeft);
+
+    app.post('/api/admin/insert/emp', userCtrl.addEmployee);
+
+    app.post('/api/admin/insert/announcement', userCtrl.insertAnnouncement);
+
+
+
+
+    app.get('/api/admin/lastPayDate', adminCtrl.lastPayDate);
+
+    app.get('/api/admin/lastmonth/emp', adminCtrl.lastAddedEmp);
+
 };

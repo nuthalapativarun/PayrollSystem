@@ -1,0 +1,103 @@
+<h3> Add Employee</h3>
+<div class="row card card-margin  col-sm-9">
+    <div class="col-sm-6 col-sm-offset-3">
+        <form ng-submit="ctrl.addEmployee()">
+            <div class="form-group">
+                <label><strong>Employee Id</strong></label>
+                <input type="text" ng-model="ctrl.user.empID" name="employeeid" id="employeeid" class="form-control input-lg" placeholder="e12"
+                    required>
+            </div>
+            <div class="form-group">
+                <label><strong>Full Name</strong></label>
+                <input type="text" ng-model="ctrl.user.fullname" name="fullname" id="fullname" class="form-control input-lg" placeholder="John Smith"
+                    required>
+            </div>
+            <div class="form-group">
+                <label><strong>SSN</strong></label>
+                <input type="text" ng-model="ctrl.user.ssn" name="ssn" id="ssn" class="form-control input-lg" placeholder="XXX-XX-XXXX"
+                    required>
+            </div>
+            <div class="form-group">
+                <label><strong>Gender</strong></label>
+                <input type="text" ng-model="ctrl.user.gender" name="gender" id="gender" class="form-control input-lg" placeholder="Male/Female"
+                    required>
+            </div>
+            <div class="form-group">
+                <label><strong>Citizenship</strong></label>
+                <input type="text" ng-model="ctrl.user.citizenship" name="citizenship" id="citizenship" class="form-control input-lg" placeholder="India"
+                    required>
+            </div>
+            <div class="form-group">
+                <label><strong>Military Status</strong></label>
+                <input type="text" ng-model="ctrl.user.militaryStatus" name="militaryStatus" id="militaryStatus" class="form-control input-lg" placeholder="Veteran"
+                    required>
+            </div>
+            <div class="form-group">
+                    <label><strong>Marital Status</strong></label>
+                    <select class="form-control" id="mstatus" ng-model="ctrl.user.maritalStatus">
+                        <option value="Married">Yes</option>
+                        <option value="Single">No</option>
+                    </select>
+             </div>
+             <div class="form-group">
+                <label><strong>Address</strong></label>
+                <input type="text" ng-model="ctrl.user.address" name="address" id="address" class="form-control input-lg" placeholder="street,city,state-zip"
+                    required>
+            </div>
+             <div class="form-group">
+                <label><strong>Date of birth</strong></label>
+                <input type="text" ng-model="ctrl.user.dob" name="dob" id="dob" class="form-control input-lg" placeholder="yyyy-mm-dd"
+                    required>
+            </div>
+             <div class="form-group">
+                <label><strong>Email</strong></label>
+                <input type="email" ng-model="ctrl.user.email" name="email" id="email" class="form-control input-lg" placeholder="name@example.com"
+                    required>
+            </div>
+            <div class="form-group">
+                <label><strong>Password</strong></label>
+                <input type="text" ng-model="ctrl.user.password" name="password" id="password" class="form-control input-lg" placeholder="Password"
+                    required>
+            </div>
+            <div class="form-group">
+                <label><strong>Joining Date</strong></label>
+                <input type="text" ng-model="ctrl.user.serviceDate" name="serviceDate" id="serviceDate" class="form-control input-lg" placeholder="yyyy-mm-dd"
+                    required>
+            </div>
+            <div class="form-group">
+                <label><strong>Employement Type</strong></label>
+                <input type="text" ng-model="ctrl.user.employmentType" name="employementType" id="employementType" class="form-control input-lg" placeholder="Full Time/Part Time"
+                    required>
+            </div>
+             <div class="form-group">
+                <label><strong>Annual Compensation</strong></label>
+                <input type="text" ng-model="ctrl.user.annualCompensation" name="annualCompensation" id="annualCompensation" class="form-control input-lg" placeholder="90000"
+                    required>
+            </div>
+            <div class="form-group">
+                    <label><strong>Department</strong></label>
+                    <select class="form-control" id="deptId" ng-model="ctrl.user.deptID">
+                        <option value="1">Devops 1</option>
+                        <option value="2">Engineering</option>
+                        <option value="3">Devops 2</option>
+                        <option value="4">Asset Management</option>
+                        <option value="5">Quality Assurance</option>
+                        <option value="6">Sales and Marketing</option>
+                        <option value="7">Human Resources</option>
+                    </select>
+             </div>
+             <div class="form-group">
+                <label><strong>Position</strong></label>
+                <input type="text" ng-model="ctrl.user.position" name="position" id="position" class="form-control input-lg" placeholder="Fullstack Developer"
+                    required>
+            </div>
+            <div class="form-group">
+                <label><strong>Phone Number</strong></label>
+                <input type="text" ng-model="ctrl.user.phone" name="phone" id="phone" class="form-control input-lg" placeholder="(XXX) XXX-XXXX"
+                    required>
+            </div>
+            <button type="submit" id="submit" class="btn btn-info btn-lg">Add User</button>
+        </form>
+        <div class="alert alert-danger" ng-if="error">{{error}}</div>
+    </div>
+</div>
