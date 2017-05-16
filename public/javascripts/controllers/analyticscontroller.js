@@ -3,8 +3,18 @@ payrollApp.controller('analyticsController', function ($scope, $http, $location,
     $scope.depts = [
         { name: 'Devops 1' },
         { name: 'Engineering' },
-        {name: 'Devops 2'}, 
+        { name: 'Devops 2' },
         { name: 'Human Resources' }
+    ];
+    $scope.employees = [
+        { name: 'Roopesh Reddy' },
+        { name: 'Sai Teja Racharla' },
+        { name: 'Hemanth Kocherlakota' },
+        { name: 'Koushik mekala' },
+        { name: 'Sanketh Doddapaneni' },
+        { name: 'Sai Srinadh Krothapalli' },
+        { name: 'Varun Nuthalapati' },
+        { name: 'chandra' }
     ];
 
 
@@ -16,7 +26,7 @@ payrollApp.controller('analyticsController', function ($scope, $http, $location,
         return monthNames[d.getMonth()];
     }
     $scope.update = function () {
-        console.log("Dept name",$scope.deptName.name);
+        console.log("Dept name", $scope.deptName.name);
 
         $http.get('/api/admin/analytics/totalSalary/' + $scope.deptName.name).then(function (response) {
             console.log("REsponse from Total Salary Analytics", response);
@@ -66,5 +76,46 @@ payrollApp.controller('analyticsController', function ($scope, $http, $location,
             console.log(error);
         });
     }
+    $scope.employeeUpdate = function () {
+        $http.get('/api/admin/analytics/quarterlySalary/' + $scope.employeeName.name).then(function (response) {
+            console.log("Employee Response", response.data);
+            if (response.status === 200) {
+                var quarter1 = (Number(response.data[0].TotalSalary)).toFixed(2);
+                var quarter2 = (Number(response.data[1].TotalSalary)).toFixed(2);
+                var quarter3 = (Number(response.data[2].TotalSalary)).toFixed(2);
+                var quarter4 = (Number(response.data[3].TotalSalary)).toFixed(2);
+                Highcharts.chart('quarterlySalary', {
+                    chart: {
+                        type: 'column',
+                        options3d: {
+                            enabled: true,
+                            alpha: 10,
+                            beta: 25,
+                            depth: 70
+                        }
+                    },
+                    title: {
+                        text: 'Quarterly Salary Details of Employee'
+                    },
+                    plotOptions: {
+                        column: {
+                            depth: 25
+                        }
+                    },
+                    xAxis: {
+                    },
+                    yAxis: {
+                        title: {
+                            text: null
+                        }
+                    },
+                    series: [{
+                        name: 'Salary',
+                        data: [Number(quarter1),Number(quarter2),Number(quarter3),Number(quarter4)]
+                    }]
+                });
+            }
+        });
+    };
 
 });
