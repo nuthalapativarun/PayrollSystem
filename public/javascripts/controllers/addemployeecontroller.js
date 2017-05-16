@@ -2,6 +2,19 @@ payrollApp.controller('addemployeeController', function ($scope,$http,$location,
     console.log("In admin dashboard controller");
 
    this.user = {};
+    function formatDate(date) {
+		var d = new Date(date),
+			month = '' + (d.getMonth() + 1),
+			day = '' + d.getDate(),
+			year = d.getFullYear();
+
+		if (month.length < 2) month = '0' + month;
+		if (day.length < 2) day = '0' + day;
+		this.date = [year, month, day].join('-');
+		return this.date;
+	}
+    this.user.dob = formatDate($scope.dob);
+    this.user.serviceDate = formatDate($scope.joiningDate);
     this.addEmployee = function(){
          
         this.user.paidLeaves = 160;
