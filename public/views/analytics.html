@@ -1,0 +1,20 @@
+<h3>Analytics</h3>
+<div class="container">
+    <div class="row">
+        <div class="card col col-md-7 col-lg-7 col-sm-11">
+
+
+            <form>
+                <label>Select a Department</label>
+                <select ng-options="dept.name for dept in depts " ng-model="deptName" ng-change="update()"></select>
+            </form>
+            <center><h4><strong>{{deptName.name}}</strong></h4></center>
+            <br><br>
+            <div ng-if="deptName">
+                <div id="lastPaychecks"></div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
