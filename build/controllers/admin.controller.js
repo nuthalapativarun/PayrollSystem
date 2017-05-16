@@ -44,4 +44,31 @@ module.exports.lastAddedEmp = function (req, res) {
         }
     }, query);
 
-}
+};
+
+module.exports.insertPaycheck = function (req, res) {
+    console.log("Inserting paycheck");
+
+    var user = req.body;
+
+    query = "INSERT INTO paycheck (date, empID, amountPaid) SELECT ?, empID, (annualCompensation/12)-((annualCompensation*32)/1200) FROM employee";
+
+    var connection = mysql.getConnection();
+    var sqlquery = connection.query(query, [user.date], function (err, results) {
+        if (err) {
+            console.log(err);
+            res
+                .status(500)
+                .json(err);
+        } else {
+            console.log(results);
+            console.log("pay inserted into paycheck Table");
+            res
+                .status(201)
+                .json(results);
+        }
+    });
+    console.log("SQL Query:", sqlquery.sql);
+    console.log("\nConnection closed");
+    connection.end();
+};

@@ -48,4 +48,6 @@ module.exports = function (app) {
 
     app.get('/api/admin/lastmonth/emp', adminCtrl.lastAddedEmp);
 
+    app.post('/api/admin/insert/paycheck', adminCtrl.insertPaycheck);
+
 };
