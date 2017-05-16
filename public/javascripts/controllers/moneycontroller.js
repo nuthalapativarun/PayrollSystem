@@ -55,9 +55,9 @@ payrollApp.controller('moneyController', function ($http, $window, $location, $s
      });
 
     $http.get('/api/user/nextPay/' + $scope.empId).then(function (response) {
-        $scope.nextPayDay = response.data["0"];
-        console.log("201 Next Paycheck Day Response", $scope.nextPayDay);
-        $scope.paycheckdate = $scope.nextPayDay.date;
+        // $scope.nextPayDay = response.data["0"];
+        // console.log("201 Next Paycheck Day Response", $scope.nextPayDay);
+        $scope.paycheckdate = "2017-05-31";
         $scope.monthName = monthName($scope.paycheckdate);
         $scope.paydate = dayDate($scope.paycheckdate);
         $scope.dayName = dayName($scope.paycheckdate);
@@ -81,7 +81,7 @@ payrollApp.controller('moneyController', function ($http, $window, $location, $s
                 type: 'column'
             },
             title: {
-                text: 'Last 3 Paychecks'
+                text: 'Last 4 Paychecks'
             },
             subtitle: {
                 text: 'Monthly Data'
