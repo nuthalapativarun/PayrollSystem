@@ -345,7 +345,7 @@ module.exports.previousAllPay = function (req, res) {
 
     var empID = req.params.empID;
 
-    query = "select * from paycheck where empID = '" + empID + "' and date < curdate() order by date desc";
+    query = "select * from paycheck where empID = '" + empID + "' and date < curdate() order by date desc limit 4";
 
     mysql.fetchData(function (err, results) {
         if (err) {
