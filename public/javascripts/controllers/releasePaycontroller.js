@@ -17,7 +17,7 @@ payrollApp.controller('releasePayController', function ($scope, $http, $location
         console.log("clicked",$scope.date);
 
             var paydate = {
-                "date": formatDate($scope.date)
+                "date": $scope.date
             };
             console.log("Salary Date", paydate );
             // $http.post('/api/admin/insert/paycheck', paydate).then(function (response) {
