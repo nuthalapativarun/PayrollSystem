@@ -95,12 +95,16 @@ payrollApp.controller('analyticsController', function ($scope, $http, $location,
                         }
                     },
                     title: {
-                        text: 'Quarterly Salary Details of Employee'
+                        text: ''
                     },
                     plotOptions: {
                         column: {
                             depth: 25
-                        }
+                        },
+                        series: {
+							pointStart: 1,
+							pointInterval: 1
+						}
                     },
                     xAxis: {
                     },
@@ -111,7 +115,8 @@ payrollApp.controller('analyticsController', function ($scope, $http, $location,
                     },
                     series: [{
                         name: 'Salary',
-                        data: [Number(quarter1),Number(quarter2),Number(quarter3),Number(quarter4)]
+                        data: [
+                            ['Quarter1', Number(quarter1)],['Quarter2',Number(quarter2)],['Quarter3',Number(quarter3)],['Quarter4',Number(quarter4)]]
                     }]
                 });
             }
