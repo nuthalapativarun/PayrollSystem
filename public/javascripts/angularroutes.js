@@ -68,9 +68,9 @@ angular.module('angularRoutes', ['ngRoute']).config(['$routeProvider', '$locatio
             templateUrl: '../views/requestLeave.html',
             controller: 'requestLeaveController'
         })
-        .when('/releasePay', {
-            templateUrl: '../views/releasepay.html',
-            controller: 'releasePayController'
+        .when('/paycheck', {
+            templateUrl: '../views/paycheck.html',
+            controller: 'paycheckController'
         })
         .when('/analytics', {
             templateUrl: '../views/analytics.html',

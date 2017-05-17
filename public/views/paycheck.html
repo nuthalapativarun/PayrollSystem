@@ -1,0 +1,23 @@
+<h3>Release pay for Employees</h3>
+<div class="container">
+    <div class="row">
+        <div class="card col col-md-7 col-lg-7 col-sm-11">
+            <h4><strong>Release Pay</strong></h4>
+            <div ng-if="!success">
+                <form ng-submit="update()">
+                    <center>
+                        <label>Select a Date</label>
+                    <input type="text" name="date" id="date" placeholder="yyyy-mm-dd" ng-model="date">
+                    <br><br><br>
+                    <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+                    </center>
+                </form>
+            </div>
+            <div ng-if="success">
+                <center>
+                <p style="color:green">{{successText}}</p>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
